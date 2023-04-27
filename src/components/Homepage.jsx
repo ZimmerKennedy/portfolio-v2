@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import PowerButton from "../subComponents/PowerButton";
 import Logos from "../subComponents/Logos";
@@ -80,17 +80,25 @@ const SKILLS = styled(NavLink)`
   text-decoration: none;
 `;
 
-const rotate = keyframes`
-0% { height: 50px; width: 1000px; }
+const breathe = keyframes`
+0% { height: 0px; width: 1000px; }
 30% { height: 425px; width: 1000px; opacity: 1 }
-40% { height: 435px; width: 1000px; opacity: 0.5; }
-100% { height: 20px; width: 1000px; opacity: 0.7; }
+40% { height: 425px; width: 1000px; opacity: 0.3; }
+100% { height: 0px; width: 1000px; opacity: 0.7; }
+`;
+const breatheMobile = keyframes`
+  0% { height: 5px; width: 200px; }
+  30% { height: 200px; width: 200px; opacity: 1 }
+  40% { height: 200px; width: 200px; opacity: 0.5; }
+  100% { height: 5px; width: 200px; opacity: 0.7; }
 `;
 
 const Center = styled.button`
   position: absolute;
-  top: 50%;
-  left: 50%;
+   top: 50%;
+   left: 50%;
+  left: ${(props) => (props.click ? "85%" : "50%")};
+  top: ${(props) => (props.click ? "82%" : "50")};
   transform: translate(-50%, -50%);
   border: none;
   outline: none;
@@ -102,22 +110,48 @@ const Center = styled.button`
   align-items: center;
   font-family: 'Karla', sans-serif;
   font-weight: 800;
+
   & > :first-child {
-    animation: ${rotate};
+    animation: ${breathe};
     animation-duration: 8s;
     animation-iteration-count: infinite;
-    
   }
+
+  @media (max-width: 768px) {
+    & > :first-child {
+      animation: ${breatheMobile};
+      animation-duration: 8s;
+      animation-iteration-count: infinite;
+    }
+  }
+
   & > :last-child {
     padding-top: 1rem;
     letter-spacing: 1em;
+    @media (max-width: 768px) {
+      letter-spacing: 0.1em;
+      font-size: 1rem;
+    }
   }
-  `;
-  // font-family: 'Pacifico', cursive;
-  // font-family: 'Source Sans Pro', sans-serif;
-  // font-family: 'Ubuntu Mono', monospace;
+`;
+
+  const Name = styled.h1`{
+    font-size: 7.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      font-size: 6.5rem;
+    }
+  }`
+
 
 const Homepage = () => {
+
+  const [click, setClick] = useState(false)
+
+  const handleClick = () => setClick(!click)
   return (
     <HomeContainer>
       <Container>
@@ -125,11 +159,10 @@ const Homepage = () => {
         <Logos />
         <Socials />
 
-        <Center>
-          <TechStack width={200} height={200} fill='currentColor'/>
+        <Center click={click}>
+          <TechStack onClick={() => handleClick()} width={200} height={200} fill='currentColor'/>
           <PersonThinking width={200} height={200} fill='currentColor'/>
-          {/* <PersonHardware width={200} height={200} fill='currentColor'/> */}
-          <h1 style={{ fontSize: '7rem', textAlign: 'center'}}>Zimmer Kennedy</h1>
+          <Name>Zimmer Kennedy</Name>
           <h2>Full-Stack Web Developer</h2>
         </Center>
 
