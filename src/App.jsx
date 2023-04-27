@@ -1,11 +1,17 @@
-import './App.css'
-
+import { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme } from "./components/Themes";
+import "./App.css";
+import GlobalStyle from "./globalStyles";
+import AppRoutes from "./AppRoutes";
 function App() {
   return (
-    <>
-    <h1 className='text-3xl font-bold underline'>Hi</h1>
-    </>
-  )
+    <div>
+      <GlobalStyle />
+      <ThemeProvider theme={lightTheme}>
+       <AppRoutes />
+      </ThemeProvider>
+    </div>
+  );
 }
 
-export default App
+export default App;
