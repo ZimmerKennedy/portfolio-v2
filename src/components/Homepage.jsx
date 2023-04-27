@@ -4,7 +4,16 @@ import PowerButton from "../subComponents/PowerButton";
 import Logos from "../subComponents/Logos";
 import Socials from "../subComponents/Socials";
 import { NavLink } from "react-router-dom";
-import { PersonHardware, PersonLaptop, PersonThinking, PowerBtn, TechStack, YinYang } from "../subComponents/AllSvgs";
+import {
+  Earth,
+  PersonHardware,
+  PersonLaptop,
+  PersonThinking,
+  PowerBtn,
+  TechStack,
+  YinYang,
+} from "../subComponents/AllSvgs";
+import Intro from "./Intro";
 
 const HomeContainer = styled.div`
   background: ${(props) => props.theme.body};
@@ -48,7 +57,7 @@ const BLOG = styled(NavLink)`
 `;
 
 const WORK = styled(NavLink)`
-  color: ${(props) => props.theme.text};
+  color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
   position: absolute;
   top: 50%;
   left: calc(1rem + 2vw);
@@ -69,7 +78,7 @@ const BOTTOMBAR = styled.div`
 `;
 
 const ABOUT = styled(NavLink)`
-  color: ${(props) => props.theme.text};
+  color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
   z-index: 1;
   text-decoration: none;
 `;
@@ -80,23 +89,19 @@ const SKILLS = styled(NavLink)`
   text-decoration: none;
 `;
 
-const breathe = keyframes`
-0% { height: 0px; width: 1000px; }
-30% { height: 425px; width: 1000px; opacity: 1 }
-40% { height: 425px; width: 1000px; opacity: 0.3; }
-100% { height: 0px; width: 1000px; opacity: 0.7; }
-`;
-const breatheMobile = keyframes`
-  0% { height: 5px; width: 200px; }
-  30% { height: 200px; width: 200px; opacity: 1 }
-  40% { height: 200px; width: 200px; opacity: 0.5; }
-  100% { height: 5px; width: 200px; opacity: 0.7; }
+const rotate = keyframes`
+from{
+  transform: rotate(0);
+}
+to{
+  transform: rotate(360deg);
+}
 `;
 
 const Center = styled.button`
   position: absolute;
-   top: 50%;
-   left: 50%;
+  top: 50%;
+  left: 50%;
   left: ${(props) => (props.click ? "85%" : "50%")};
   top: ${(props) => (props.click ? "82%" : "50")};
   transform: translate(-50%, -50%);
@@ -108,62 +113,51 @@ const Center = styled.button`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
   font-weight: 800;
+  transition: all 1.5s ease;
 
   & > :first-child {
-    animation: ${breathe};
-    animation-duration: 8s;
-    animation-iteration-count: infinite;
+    animation: ${rotate} infinite 12s linear;
   }
-
-  @media (max-width: 768px) {
-    & > :first-child {
-      animation: ${breatheMobile};
-      animation-duration: 8s;
-      animation-iteration-count: infinite;
-    }
-  }
-
   & > :last-child {
+    display: ${(props) => (props.click ? "none" : "inline-block")};
     padding-top: 1rem;
-    letter-spacing: 1em;
-    @media (max-width: 768px) {
-      letter-spacing: 0.1em;
-      font-size: 1rem;
-    }
   }
 `;
 
-  const Name = styled.h1`{
-    font-size: 7.5rem;
-
-    @media (max-width: 768px) {
-      font-size: 1.5rem;
-    }
-    @media (min-width: 769px) and (max-width: 1024px) {
-      font-size: 6.5rem;
-    }
-  }`
-
+const DarkDiv = styled.div`
+  position: absolute;
+  background-color: #111;
+  width: ${(props) => (props.click ? "50%" : "0%")};
+  height: ${(props) => (props.click ? "100%" : "0%")};
+  top: 0;
+  bottom: 0;
+  right: 50%;
+  z-index: 1;
+  transition: height 0.5s ease, width 1s ease 0.5s;
+`;
 
 const Homepage = () => {
+  const [click, setClick] = useState(false);
 
-  const [click, setClick] = useState(false)
-
-  const handleClick = () => setClick(!click)
+  const handleClick = () => setClick(!click);
   return (
     <HomeContainer>
+      <DarkDiv click={click} />
       <Container>
         <PowerButton />
-        <Logos />
-        <Socials />
+        <Logos theme={click ? "dark" : "light"} />
+        <Socials theme={click ? "dark" : "light"} />
 
         <Center click={click}>
-          <TechStack onClick={() => handleClick()} width={200} height={200} fill='currentColor'/>
-          <PersonThinking width={200} height={200} fill='currentColor'/>
-          <Name>Zimmer Kennedy</Name>
-          <h2>Full-Stack Web Developer</h2>
+          <YinYang
+            onClick={() => handleClick()}
+            width={click ? 120 : 200}
+            height={200}
+            fill="currentColor"
+          />
+          <h2>Click Me</h2>
         </Center>
 
         <Contact
@@ -175,18 +169,19 @@ const Homepage = () => {
         <BLOG to="/blog">
           <h2>Blog</h2>
         </BLOG>
-        <WORK to="/work">
+        <WORK to="/work" click={click}>
           <h2>Work</h2>
         </WORK>
         <BOTTOMBAR>
-          <ABOUT to="/about">
+          <ABOUT to="/about" click={click}>
             <h2>About</h2>
           </ABOUT>
-          <SKILLS to="/skills">
+          <SKILLS to="/skills" click={click}>
             <h2>Skills</h2>
           </SKILLS>
         </BOTTOMBAR>
       </Container>
+      {click ? <Intro click={click} /> : null}
     </HomeContainer>
   );
 };

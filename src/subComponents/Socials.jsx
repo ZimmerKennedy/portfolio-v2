@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Github, LinkedIn, Resume } from "./AllSvgs";
 import resumeZimmer from "/resumeZimmer.pdf";
+import { darkTheme } from "../components/Themes";
 const Icons = styled.div`
   display: flex;
   flex-direction: column;
@@ -20,10 +21,10 @@ const Icons = styled.div`
 const Line = styled.span`
   width: 2px;
   height: 8rem;
-  background-color: ${(props) => props.theme.text};
+  background-color: ${(props) => props.color === 'dark' ? darkTheme.text : darkTheme.body};
 `;
 
-const Socials = () => {
+const Socials = (props) => {
   function downloadResume() {
     const link = document.createElement("a");
     link.href = resumeZimmer;
@@ -41,7 +42,7 @@ const Socials = () => {
             window.open("https://github.com/ZimmerKennedy", "_blank")
           }
         >
-          <Github width={25} height={25} fill="currentColor" />
+          <Github width={25} height={25} fill={props.theme === "dark" ? darkTheme.text : darkTheme.body} />
         </NavLink>
       </div>
       <div>
@@ -51,7 +52,7 @@ const Socials = () => {
             window.open("https://www.linkedin.com/in/zimmerkennedy/", "_blank")
           }
         >
-          <LinkedIn width={25} height={25} fill="currentColor" />
+          <LinkedIn width={25} height={25} fill={props.theme === "dark" ? darkTheme.text : darkTheme.body} />
         </NavLink>
       </div>
       <div>
@@ -59,12 +60,12 @@ const Socials = () => {
           <Resume
             width={25}
             height={25}
-            fill="currentColor"
+            fill={props.theme === "dark" ? darkTheme.text : darkTheme.body}
             onClick={downloadResume}
           />
         </NavLink>
       </div>
-      <Line />
+      <Line color={props.theme}/>
     </Icons>
   );
 };
