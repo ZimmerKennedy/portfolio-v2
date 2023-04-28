@@ -4,16 +4,9 @@ import PowerButton from "../subComponents/PowerButton";
 import Logos from "../subComponents/Logos";
 import Socials from "../subComponents/Socials";
 import { NavLink } from "react-router-dom";
-import {
-  Earth,
-  PersonHardware,
-  PersonLaptop,
-  PersonThinking,
-  PowerBtn,
-  TechStack,
-  YinYang,
-} from "../subComponents/AllSvgs";
+import { PersonPointingTop, WWW } from "../subComponents/AllSvgs";
 import Intro from "./Intro";
+import { motion } from "framer-motion";
 
 const HomeContainer = styled.div`
   background: ${(props) => props.theme.body};
@@ -90,11 +83,11 @@ const SKILLS = styled(NavLink)`
 `;
 
 const rotate = keyframes`
-from{
-  transform: rotate(0);
+from {
+  transform: rotateY(0deg);
 }
-to{
-  transform: rotate(360deg);
+to {
+  transform: rotateY(360deg);
 }
 `;
 
@@ -102,8 +95,8 @@ const Center = styled.button`
   position: absolute;
   top: 50%;
   left: 50%;
-  left: ${(props) => (props.click ? "85%" : "50%")};
-  top: ${(props) => (props.click ? "82%" : "50")};
+  left: ${(props) => (props.click ? "90%" : "50%")};
+  top: ${(props) => (props.click ? "83%" : "50")};
   transform: translate(-50%, -50%);
   border: none;
   outline: none;
@@ -115,10 +108,10 @@ const Center = styled.button`
   align-items: center;
   font-family: "Karla", sans-serif;
   font-weight: 800;
-  transition: all 1.5s ease;
+  transition: all 1s ease;
 
   & > :first-child {
-    animation: ${rotate} infinite 12s linear;
+    animation: ${rotate} infinite 3s linear;
   }
   & > :last-child {
     display: ${(props) => (props.click ? "none" : "inline-block")};
@@ -128,7 +121,7 @@ const Center = styled.button`
 
 const DarkDiv = styled.div`
   position: absolute;
-  background-color: #111;
+  background-color: #c0aa9a;
   width: ${(props) => (props.click ? "50%" : "0%")};
   height: ${(props) => (props.click ? "100%" : "0%")};
   top: 0;
@@ -142,6 +135,7 @@ const Homepage = () => {
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
+
   return (
     <HomeContainer>
       <DarkDiv click={click} />
@@ -150,34 +144,41 @@ const Homepage = () => {
         <Logos theme={click ? "dark" : "light"} />
         <Socials theme={click ? "dark" : "light"} />
 
-        <Center click={click}>
-          <YinYang
-            onClick={() => handleClick()}
-            width={click ? 120 : 200}
-            height={200}
-            fill="currentColor"
-          />
-          <h2>Click Me</h2>
+        <Center click={click} onClick={() => handleClick()}>
+          <WWW width={click ? 50 : 180} height={200} fill="currentColor" />
+          <PersonPointingTop width={60} height={60}>
+            Click Me
+          </PersonPointingTop>
         </Center>
 
         <Contact
           target="_blank"
           to={{ pathname: "mailto:kennedyzimmer00@gmail.com" }}
         >
-          <h2>Say Hi...</h2>
+          <motion.h2 whileHover={{ scale: 1.5 }} whileTap={{ scale: 2 }}>
+            Say Hi...
+          </motion.h2>
         </Contact>
         <BLOG to="/blog">
-          <h2>Blog</h2>
+          <motion.h2 whileHover={{ scale: 1.5 }} whileTap={{ scale: 2 }}>
+            Blog
+          </motion.h2>
         </BLOG>
         <WORK to="/work" click={click}>
-          <h2>Work</h2>
+          <motion.h2 whileHover={{ scale: 1.5 }} whileTap={{ scale: 2 }}>
+            Work
+          </motion.h2>
         </WORK>
         <BOTTOMBAR>
           <ABOUT to="/about" click={click}>
-            <h2>About</h2>
+            <motion.h2 whileHover={{ scale: 1.5 }} whileTap={{ scale: 2 }}>
+              About
+            </motion.h2>
           </ABOUT>
           <SKILLS to="/skills" click={click}>
-            <h2>Skills</h2>
+            <motion.h2 whileHover={{ scale: 1.5 }} whileTap={{ scale: 2 }}>
+              Skills
+            </motion.h2>
           </SKILLS>
         </BOTTOMBAR>
       </Container>

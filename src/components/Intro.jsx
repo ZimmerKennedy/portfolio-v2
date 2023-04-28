@@ -1,82 +1,140 @@
 import React from "react";
-import styled from "styled-components";
-import { PersonThinking } from "../subComponents/AllSvgs";
+import styled, { keyframes } from "styled-components";
+import {motion} from 'framer-motion'
+import { PersonThinking, TechStack } from "../subComponents/AllSvgs";
 
-
-const Box = styled.div`
+const Box = styled(motion.div)`
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 65vw;
+  width: 60vw;
   display: flex;
-    height: 55vh;
+  height: 70vh;
   background: linear-gradient(
         to right,
-        ${props => props.theme.body} 50%,
-        ${props => props.theme.text} 50%
+        ${(props) => props.theme.body} 50%,
+        ${(props) => props.theme.text} 50%
       )
       bottom,
     linear-gradient(
         to right,
-        ${props => props.theme.body} 50%,
-        ${props => props.theme.text} 50%
+        ${(props) => props.theme.body} 50%,
+        ${(props) => props.theme.text} 50%
       )
       top;
   background-repeat: no-repeat;
   background-size: 100% 2px;
 
-  border-left: 2px solid ${props => props.theme.body};
-  border-right: 2px solid ${props => props.theme.text};
+  border-left: 2px solid ${(props) => props.theme.body};
+  border-right: 2px solid ${(props) => props.theme.text};
 
   z-index: 1;
 `;
 
-const SubBox = styled.div`
-  width: 50%;
-  position: relative;
-  display: flex;
+const breathe = keyframes`
+0% { height: 0px; width: 1000px; }
+30% { height: 190px; width: 1000px; opacity: 1 }
+40% { height: 190px; width: 1000px; opacity: 0.3; }
+100% { height: 0px; width: 1000px; opacity: 0.7; }
 `;
-const StyledPersonThinking = styled(PersonThinking)`
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
-  width: 100%;
-  height: auto;
+const breatheMobile = keyframes`
+  0% { height: 5px; width: 200px; }
+  30% { height: 120px; width: 200px; opacity: 1 }
+  40% { height: 120px; width: 200px; opacity: 0.5; }
+  100% { height: 5px; width: 200px; opacity: 0.7; }
 `;
 
-const Text = styled.div`
-  font-size: 3rem;
-  color: ${props => props.theme.body};
-  padding: 2rem;
+const Center = styled(motion.div)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  left: ${(props) => (props.click ? "85%" : "50%")};
+  top: ${(props) => (props.click ? "82%" : "50")};
+  transform: translate(-50%, -50%);
+  border: none;
+  outline: none;
+  background-color: transparent;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
+  font-family: "Karla", sans-serif;
+  font-weight: 800;
+  & > :first-child {
+    animation: ${breathe};
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+  }
+  @media (max-width: 768px) {
+    & > :first-child {
+      animation: ${breatheMobile};
+      animation-duration: 8s;
+      animation-iteration-count: infinite;
+    }
+    font-size: 7.5rem;
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      font-size: 6.5rem;
+    }
+  }
+  & > :last-child {
+    padding-top: 1rem;
+    letter-spacing: 1em;
+    @media (max-width: 768px) {
+      letter-spacing: 0.5px;
+      font-size: 0.8rem;
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+        letter-spacing: 8px;
+      font-size: 1.5rem;
+      }
+  }
+`;
 
-  & > *:last-child {
-    color: ${props => `rgba(${props.theme.bodyRgba}, 0.6)`};
-    font-size: calc(0.5rem + 1.5vw);
-    font-weight: 300;
+const Name = styled.h1`
+   {
+    font-size: 7.8rem;
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      font-size: 4.2rem;
+    }
+  }
+`;
+
+const StyledPersonThinking = styled(PersonThinking)`
+  width: 300px;
+  height: 300px;
+
+  @media (max-width: 768px) {
+    width: 220px;
+    height: 220px;
   }
 `;
 
 const Intro = () => {
   return (
-    <Box>
-      <SubBox>
-        <Text>
-          <h1>Hi,</h1>
-          <h3>I'm Zimmer Kennedy</h3>
-          <h6>Full-Stack Web Developer</h6>
-        </Text>
-      </SubBox>
-      <SubBox>
-        <div>
-          <StyledPersonThinking />
-        </div>
-      </SubBox>
+    <Box
+    initial={{height:0}}
+    animate={{height: '70vh'}}
+    transition={{ type: 'spring', duration:1, delay:1}}
+    >
+      <Center
+      initial={{opacity:0}}
+      animate={{opacity:1}}
+      transition={{duration:2, delay:1}}
+      
+      >
+        <TechStack width={200} height={200} fill="currentColor" />
+        <StyledPersonThinking width={285} height={285} fill="currentColor" />
+        <Name>Zimmer Kennedy</Name>
+        <h2>Full-Stack Web Developer</h2>
+      </Center>
     </Box>
   );
 };
