@@ -59,16 +59,14 @@ const Tag = styled.span`
 padding-right: 0.5rem;
 `
 
-const Date = styled.span`
 
-`
 
 const BlogSection = (props) => {
 
     const {name, tags, date, imgSrc, link} = props.blog
 
   return (
-    <Box target="_blank" to={{pathname: link}}>
+    <Box target="_blank" to={link}>
         <Image img={imgSrc} />
         <Title>{name}</Title>
         <HashTags>
@@ -78,9 +76,6 @@ const BlogSection = (props) => {
                 })
             }
         </HashTags>
-        <Date>
-            {date}
-        </Date>
         </Box>
   )
 }
