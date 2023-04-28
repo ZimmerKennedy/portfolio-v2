@@ -7,6 +7,7 @@ import { NavLink } from "react-router-dom";
 import { PersonPointingTop, WWW } from "../subComponents/AllSvgs";
 import Intro from "./Intro";
 import { motion } from "framer-motion";
+import TestParticles from "../subComponents/TestParticles";
 
 const HomeContainer = styled.div`
 background: ${(props) => {

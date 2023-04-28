@@ -5,8 +5,9 @@ import { Moon, Sun } from "../subComponents/AllSvgs";
 import Logos from "../subComponents/Logos";
 import Socials from "../subComponents/Socials";
 import PowerButton from "../subComponents/PowerButton";
-import ParticleComponent from "../subComponents/ParticleComponent";
-import TestParticles from "../subComponents/TestParticles";
+import SnowParticleComponent from "../subComponents/SnowParticleComponent";
+import RainParticleComponent from "../subComponents/RainParticleComponent";
+import StarParticleComponent from "../subComponents/StarParticleComponent";
 const Box = styled.div`
   background: ${(props) => props.theme.body};
   width: 100vw;
@@ -66,15 +67,17 @@ ${Main}:hover&{
 
 const SkillsPage = (props) => {
   return (
-    <ThemeProvider theme={lightTheme}>
+
 
       <Box>
         <Logos theme='light'/>
         <Socials theme='light'/>
         <PowerButton toggleTheme={props.toggleTheme} theme={props.theme}/>
-        {/* <ParticleComponent theme='light' />
-         */}
-         <TestParticles />
+        {/* <RainParticleComponent/> */}
+        {/* <SnowParticleComponent /> */}
+        <StarParticleComponent />
+        {/* <TestParticles /> */}
+        
         <Main>
           <Title>
             <Moon width={40} height={40} />
@@ -91,7 +94,7 @@ const SkillsPage = (props) => {
         </Main>
       </Box>
 
-    </ThemeProvider>
+
   );
 };
 
