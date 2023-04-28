@@ -9,7 +9,10 @@ import Intro from "./Intro";
 import { motion } from "framer-motion";
 
 const HomeContainer = styled.div`
-  background: ${(props) => props.theme.body};
+background: ${(props) => {
+  console.log('HomeContainer props:', props);
+  return props.theme.body;
+}};
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -131,7 +134,7 @@ const DarkDiv = styled.div`
   transition: height 0.5s ease, width 1s ease 0.5s;
 `;
 
-const Homepage = () => {
+const Homepage = (props) => {
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
@@ -140,7 +143,7 @@ const Homepage = () => {
     <HomeContainer>
       <DarkDiv click={click} />
       <Container>
-        <PowerButton />
+        <PowerButton toggleTheme={props.toggleTheme} theme={props.theme}/>
         <Logos theme={click ? "dark" : "light"} />
         <Socials theme={click ? "dark" : "light"} />
 

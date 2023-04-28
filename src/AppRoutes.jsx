@@ -6,11 +6,11 @@ import BlogPage from "./components/BlogPage";
 import Workpage from "./components/Workpage";
 import SkillsPage from "./components/SkillsPage";
 
-const AppRoutes = () => {
+const AppRoutes = (props) => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        <Route path="/" element={<Homepage toggleTheme={props.toggleTheme} theme={props.theme}/>} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/work" element={<Workpage />} />
