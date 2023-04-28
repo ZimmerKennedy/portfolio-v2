@@ -5,6 +5,7 @@ import AboutPage from "./components/AboutPage";
 import BlogPage from "./components/BlogPage";
 import Workpage from "./components/Workpage";
 import SkillsPage from "./components/SkillsPage";
+import TestParticles from "./subComponents/TestParticles";
 
 const AppRoutes = (props) => {
   return (
@@ -15,6 +16,7 @@ const AppRoutes = (props) => {
         <Route path="/blog" element={<BlogPage toggleTheme={props.toggleTheme} theme={props.theme}/>} />
         <Route path="/work" element={<Workpage toggleTheme={props.toggleTheme} theme={props.theme}/>} />
         <Route path="/skills" element={<SkillsPage toggleTheme={props.toggleTheme} theme={props.theme}/>} />
+        <Route path="/test" element={<TestParticles toggleTheme={props.toggleTheme} theme={props.theme}/>} />
       </Routes>
     </div>
   );
