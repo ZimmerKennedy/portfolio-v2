@@ -10,7 +10,6 @@ import { motion } from "framer-motion";
 
 const HomeContainer = styled.div`
 background: ${(props) => {
-  console.log('HomeContainer props:', props);
   return props.theme.body;
 }};
   width: 100vw;

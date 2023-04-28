@@ -51,13 +51,13 @@ const StyledMoon = styled(Moon)`
 const PowerButton = ({toggleTheme, theme}) => {
   return (
     <Power>
-      <NavLink to="/">
+      <div>
       {theme === "light" ? (
-          <StyledSun width={50} height={50} fill="currentColor" onClick={toggleTheme} />
+        <StyledSun width={50} height={50} fill="currentColor" onClick={toggleTheme} />
         ) : (
           <StyledMoon width={50} height={50} fill="currentColor" onClick={toggleTheme} />
         )}
-      </NavLink>
+      </div>
     </Power>
   );
 };

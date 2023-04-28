@@ -11,10 +11,10 @@ const AppRoutes = (props) => {
     <div>
       <Routes>
         <Route path="/" element={<Homepage toggleTheme={props.toggleTheme} theme={props.theme}/>} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/blog" element={<BlogPage />} />
-        <Route path="/work" element={<Workpage />} />
-        <Route path="/skills" element={<SkillsPage />} />
+        <Route path="/about" element={<AboutPage toggleTheme={props.toggleTheme} theme={props.theme}/>} />
+        <Route path="/blog" element={<BlogPage toggleTheme={props.toggleTheme} theme={props.theme}/>} />
+        <Route path="/work" element={<Workpage toggleTheme={props.toggleTheme} theme={props.theme}/>} />
+        <Route path="/skills" element={<SkillsPage toggleTheme={props.toggleTheme} theme={props.theme}/>} />
       </Routes>
     </div>
   );

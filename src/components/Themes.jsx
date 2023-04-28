@@ -4,6 +4,7 @@ export const lightTheme = {
     fontFamily:"'Source Sans Pro', sans-serif",
     bodyRgba : "252, 246, 244",
     textRgba:"0,0,0",
+    hoverText: "#FCF6F4"
 }
 
 export const darkTheme = {
@@ -12,6 +13,7 @@ export const darkTheme = {
     fontFamily:"'Source Sans Pro', sans-serif",
     textRgba : "252, 246, 244",
     bodyRgba:"0,0,0",
+    hoverText: "#000000"
 }
 
 export const rainTheme = {
@@ -26,6 +28,10 @@ export const sunnyTheme =
 {
     body:"#FCF6F4",
     text:"#000000",
+    fontFamily:"'Source Sans Pro', sans-serif",
+    bodyRgba : "252, 246, 244",
+    textRgba:"0,0,0",
+    hoverText: "#FCF6F4",
   }
 
   export const nightTheme = {
@@ -34,4 +40,5 @@ export const sunnyTheme =
     fontFamily: "'Source Sans Pro', sans-serif",
     textRgba: "252, 246, 244",
     bodyRgba: "0,0,0",
+    hoverText: "#000000"
   };

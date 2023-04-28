@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { ThemeProvider } from "styled-components";
-import { sunnyTheme, nightTheme, darkTheme } from "./components/Themes";
+import { lightTheme, nightTheme, darkTheme, sunnyTheme } from "./components/Themes";
 import "./App.css";
 import GlobalStyle from "./globalStyles";
 import AppRoutes from "./AppRoutes";
 function App() {
 
-  const [theme, setTheme] = useState('sunny');
+  const [theme, setTheme] = useState('light');
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
