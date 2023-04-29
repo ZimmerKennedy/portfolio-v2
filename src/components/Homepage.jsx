@@ -146,14 +146,15 @@ const Homepage = (props) => {
   const handleClick = () => setClick(!click);
 
   return (
+    
     <HomeContainer>
       <DarkDiv click={click} />
       <Container>
         <PowerButton toggleTheme={props.toggleTheme} theme={props.theme}/>
         {props.theme === "night" && <StarParticleComponent />}
         {props.theme === "clouds" && <SnowParticleComponent />}
-        <Logos theme={click ? "dark" : "light"} />
-        <Socials theme={click ? "dark" : "light"} />
+        <Logos theme={(props.theme === 'sunny' && !click) ? "light" : "dark"} />
+<Socials theme={(props.theme === 'sunny' && !click) ? "light" : "dark"} />
 
         <Center click={click} onClick={() => handleClick()}>
           <WWW width={click ? 50 : 180} height={200} fill="currentColor" />
