@@ -9,6 +9,9 @@ import SnowParticleComponent from "../subComponents/SnowParticleComponent";
 import StarParticleComponent from "../subComponents/StarParticleComponent";
 import { motion } from "framer-motion";
 
+import { Work } from '../data/WorkData'
+import Card from "../subComponents/Card";
+
 const Container = styled.div`
   width: 100vw;
   height: 100%;
@@ -17,6 +20,8 @@ const Container = styled.div`
   /* Add a console.log statement here */
   ${(props) => console.log(props)}
 `;
+
+
 const Box = styled.div`
   color: ${(props) => props.theme.body};
   background: ${(props) => props.theme.body};
@@ -27,6 +32,15 @@ const Box = styled.div`
   overflow: hidden;
 `;
 
+const Main = styled.ul`
+position: fixed;
+top: 12rem;
+left: calc(10rem + 15vw);
+height: 40vh;
+display: flex;
+
+color:white;
+`
 const WorkPage = (props) => {
   console.log(`i am about`, props);
   const hoverAnimation = {
@@ -48,7 +62,14 @@ const WorkPage = (props) => {
           <PowerButton toggleTheme={props.toggleTheme} theme={props.theme} />
           {props.theme === "night" && <StarParticleComponent />}
           {props.theme === "clouds" && <SnowParticleComponent />}
-          WorkPAGE
+          
+          <Main>
+            {
+              Work.map( d =>
+               <Card key={d.id} data={d} />
+                )
+            }
+          </Main>
         </Box>
       </Container>
     </ThemeProvider>
