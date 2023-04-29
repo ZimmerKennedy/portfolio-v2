@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Github, LinkedIn, Resume } from "./AllSvgs";
-import resumeZimmer from "/resumeZimmer.pdf";
+import resumeZimmer from "../assets/images/resumeZimmer.pdf";
 import { darkTheme } from "../components/Themes";
 const Icons = styled.div`
   display: flex;
