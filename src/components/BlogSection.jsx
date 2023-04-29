@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
-
-const Box = styled(NavLink)`
+import { motion } from 'framer-motion'
+const Box = styled(motion(NavLink))`
 width: calc(10rem + 15vw);
 text-decoration: none;
 height: 20rem;
@@ -58,7 +58,21 @@ padding: 0.5rem 0;
 const Tag = styled.span`
 padding-right: 0.5rem;
 `
+const Container = styled(motion.div)`
+`
 
+const Item ={
+    hidden:{
+        scale:0
+    },
+    show:{
+        scale:1,
+        transition: {
+            type: 'spring',
+            duration: 0.5
+        }
+    }
+}
 
 
 const BlogSection = (props) => {
@@ -66,6 +80,10 @@ const BlogSection = (props) => {
     const {name, tags, date, imgSrc, link} = props.blog
 
   return (
+    <Container
+    variants={Item}
+    >
+
     <Box target="_blank" to={link}>
         <Image img={imgSrc} />
         <Title>{name}</Title>
@@ -77,6 +95,7 @@ const BlogSection = (props) => {
             }
         </HashTags>
         </Box>
+            </Container>
   )
 }
 

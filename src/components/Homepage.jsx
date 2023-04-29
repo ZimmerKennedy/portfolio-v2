@@ -169,11 +169,11 @@ const Homepage = (props) => {
           <motion.h2
             initial={{
               y: -200,
-              transition: { type: "spring", duration: 1.5, delay: 1 },
+              transition: { type: "spring", duration: 1.5, delay: 0.7},
             }}
             animate={{
               y: 0,
-              transition: { type: "spring", duration: 1.5, delay: 1 },
+              transition: { type: "spring", duration: 1.5, delay: 0.7},
             }}
             whileHover={{ scale: 1.5 }}
             whileTap={{ scale: 2 }}
@@ -185,11 +185,11 @@ const Homepage = (props) => {
           <motion.h2 
           initial={{
             y: -200,
-            transition: { type: "spring", duration: 1.5, delay: 1 },
+            transition: { type: "spring", duration: 1.5, delay: 0.7},
           }}
           animate={{
             y: 0,
-            transition: { type: "spring", duration: 1.5, delay: 1 },
+            transition: { type: "spring", duration: 1.5, delay: 0.7},
           }}
           whileHover={{ scale: 1.5 }} whileTap={{ scale: 2 }}>
             Blog
@@ -199,11 +199,11 @@ const Homepage = (props) => {
           <motion.h2 
           initial={{
             y: -200,
-            transition: { type: "spring", duration: 1.5, delay: 1 },
+            transition: { type: "spring", duration: 1.5, delay: 0.7},
           }}
           animate={{
             y: 0,
-            transition: { type: "spring", duration: 1.5, delay: 1 },
+            transition: { type: "spring", duration: 1.5, delay: 0.7},
           }}
           whileHover={{ scale: 1.5 }} whileTap={{ scale: 2 }}>
             Work
@@ -214,11 +214,11 @@ const Homepage = (props) => {
             <motion.h2 
             initial={{
               y: 200,
-              transition: { type: "spring", duration: 1.5, delay: 1 },
+              transition: { type: "spring", duration: 1.5, delay: 0.7},
             }}
             animate={{
               y: 0,
-              transition: { type: "spring", duration: 1.5, delay: 1 },
+              transition: { type: "spring", duration: 1.5, delay: 0.7},
             }}
             whileHover={{ scale: 1.5 }} whileTap={{ scale: 2 }}>
               About
@@ -228,11 +228,11 @@ const Homepage = (props) => {
             <motion.h2 
             initial={{
               y: 200,
-              transition: { type: "spring", duration: 1.5, delay: 1 },
+              transition: { type: "spring", duration: 1.5, delay: 0.7},
             }}
             animate={{
               y: 0,
-              transition: { type: "spring", duration: 1.5, delay: 1 },
+              transition: { type: "spring", duration: 1.5, delay: 0.7},
             }}
             whileHover={{ scale: 1.5 }} whileTap={{ scale: 2 }}>
               Skills

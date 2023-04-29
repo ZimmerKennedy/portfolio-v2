@@ -10,7 +10,14 @@ import SnowParticleComponent from "../subComponents/SnowParticleComponent";
 import RainParticleComponent from "../subComponents/RainParticleComponent";
 import StarParticleComponent from "../subComponents/StarParticleComponent";
 import BigTitle from "../subComponents/BigTitle";
-const MainContainer = styled.div`
+import { motion } from "framer-motion";
+
+
+
+
+
+
+const MainContainer = styled(motion.div)`
   width: 100vw;
 `;
 const Container = styled.div`
@@ -34,12 +41,35 @@ const Grid = styled.div`
   grid-template-columns: repeat(1, minmax(calc(10rem + 15vw), 1fr));
   grid-gap: calc(1rem + 2vw);
 `;
+
+const container = {
+  hidden: {opacity: 0},
+  show: {
+    opacity: 1,
+    transition:{
+      staggerChildren: 0.5,
+      duration: 0.5,
+    }
+  }
+}
+
+
+
+
+
 const BlogPage = (props) => {
 
   
 
   return (
-    <MainContainer>
+    <MainContainer
+    variants={container}
+    initial='hidden'
+    animate='show'
+    exit={{
+      opacity:0, transition:{duration:0.5}
+    }}
+    >
       <Container>
         <Logos />
         <PowerButton toggleTheme={props.toggleTheme} theme={props.theme} />
