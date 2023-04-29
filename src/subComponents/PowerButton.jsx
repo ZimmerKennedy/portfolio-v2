@@ -1,6 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
-import { Moon, Sun } from "./AllSvgs";
+import { Cloud, Moon, Sun } from "./AllSvgs";
 import { NavLink } from "react-router-dom";
 
 const Power = styled.button`
@@ -47,17 +47,45 @@ const StyledMoon = styled(Moon)`
     );
   }
 `;
+const StyledClouds = styled(Cloud)`
+  padding: 0.5rem;
+  border-radius: 100%;
+  transition: transform 250ms;
+  &:hover {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(220, 220, 220, 0.4) 50%,
+      rgba(255, 255, 255, 0.4) 100%
+    );
+  }
+`;
 
 const PowerButton = ({toggleTheme, theme}) => {
+
+  const [powerState, setPowerState] = useState("sunny");
+
+  const handlePowerStateChange = () => {
+    const nextState =
+      powerState === "sunny" ? "night" : powerState === "night" ? "clouds" : "sunny";
+    setPowerState(nextState);
+    toggleTheme(nextState);
+  };
+
   return (
-    <Power>
+     <Power onClick={handlePowerStateChange}>
       <div>
-      {theme === "light" ? (
-        <StyledSun width={50} height={50} fill="currentColor" onClick={toggleTheme} />
-        ) : (
-          <StyledMoon width={50} height={50} fill="currentColor" onClick={toggleTheme} />
+
+      {powerState === "sunny" && (
+        <StyledSun width={50} height={50} fill="currentColor" />
         )}
-      </div>
+      {powerState === "night" && (
+        <StyledMoon width={50} height={50} fill="currentColor" />
+        )}
+      {powerState === "clouds" && (
+        <StyledClouds width={50} height={50} fill="currentColor" />
+        )}
+        </div>
     </Power>
   );
 };

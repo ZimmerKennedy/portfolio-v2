@@ -8,6 +8,9 @@ import { PersonPointingTop, WWW } from "../subComponents/AllSvgs";
 import Intro from "./Intro";
 import { motion } from "framer-motion";
 import TestParticles from "../subComponents/TestParticles";
+import SnowParticleComponent from "../subComponents/SnowParticleComponent";
+import StarParticleComponent from "../subComponents/StarParticleComponent";
+import RainParticleComponent from "../subComponents/RainParticleComponent";
 
 const HomeContainer = styled.div`
 background: ${(props) => {
@@ -53,7 +56,10 @@ const BLOG = styled(NavLink)`
 `;
 
 const WORK = styled(NavLink)`
-  color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
+color: ${props => {
+  console.log(props); // Log the props
+  return props.click ? props.theme.body : props.theme.text;
+}};
   position: absolute;
   top: 50%;
   left: calc(1rem + 2vw);
@@ -144,6 +150,8 @@ const Homepage = (props) => {
       <DarkDiv click={click} />
       <Container>
         <PowerButton toggleTheme={props.toggleTheme} theme={props.theme}/>
+        {props.theme === "night" && <StarParticleComponent />}
+        {props.theme === "clouds" && <SnowParticleComponent />}
         <Logos theme={click ? "dark" : "light"} />
         <Socials theme={click ? "dark" : "light"} />
 

@@ -6,7 +6,9 @@ import Socials from "../subComponents/Socials";
 import { Blogs } from "../data/BlogData";
 import BlogSection from "./BlogSection";
 import Slider from "../subComponents/Slider";
-
+import SnowParticleComponent from "../subComponents/SnowParticleComponent";
+import RainParticleComponent from "../subComponents/RainParticleComponent";
+import StarParticleComponent from "../subComponents/StarParticleComponent";
 const MainContainer = styled.div`
   width: 100vw;
 `;
@@ -40,6 +42,8 @@ const BlogPage = (props) => {
       <Container>
         <Logos />
         <PowerButton toggleTheme={props.toggleTheme} theme={props.theme} />
+        {props.theme === "night" && <StarParticleComponent />}
+        {props.theme === "clouds" && <RainParticleComponent />}
         <Socials />
         <Slider />
         <Center>

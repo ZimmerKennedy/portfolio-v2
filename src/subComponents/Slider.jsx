@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import { Charger, ChargerLine, CloseTag, PersonHardware } from './AllSvgs'
+import {CloseTag, PersonHardware } from './AllSvgs'
 
 const Container = styled.div`
 position: relative;
@@ -15,10 +15,6 @@ justify-content: center;
 align-items: center;
 flex-direction: column;
 transform: translateY(-100%);
-
-.charger{
-  transform: rotate(180deg);
-}
 `
 
 const PreDisplay = styled.div`
