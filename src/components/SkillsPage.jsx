@@ -9,6 +9,7 @@ import SnowParticleComponent from "../subComponents/SnowParticleComponent";
 import RainParticleComponent from "../subComponents/RainParticleComponent";
 import StarParticleComponent from "../subComponents/StarParticleComponent";
 import { motion } from 'framer-motion';
+import BigTitle from "../subComponents/BigTitle";
 
 const Container = styled.div`
   width: 100vw;
@@ -119,6 +120,7 @@ const SkillsPage = (props) => {
           </Title>
           <Description>NodeJS, ExpressJS, PostgreSQL, Sequelize, Firebase</Description>
         </Main>
+        <BigTitle text="SKILLS" top="80%" left="30%"/>
       </Box>
     </Container>
 

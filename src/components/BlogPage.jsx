@@ -9,6 +9,7 @@ import Slider from "../subComponents/Slider";
 import SnowParticleComponent from "../subComponents/SnowParticleComponent";
 import RainParticleComponent from "../subComponents/RainParticleComponent";
 import StarParticleComponent from "../subComponents/StarParticleComponent";
+import BigTitle from "../subComponents/BigTitle";
 const MainContainer = styled.div`
   width: 100vw;
 `;
@@ -53,6 +54,7 @@ const BlogPage = (props) => {
             })}
           </Grid>
         </Center>
+        <BigTitle text="BLOG" top="5rem" left="5rem"/>
       </Container>
     </MainContainer>
   );

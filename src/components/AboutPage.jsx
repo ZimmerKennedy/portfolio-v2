@@ -10,6 +10,7 @@ import RainParticleComponent from "../subComponents/RainParticleComponent";
 import StarParticleComponent from "../subComponents/StarParticleComponent";
 import { motion } from "framer-motion";
 import astronaut from "../assets/images/astro3.png";
+import BigTitle from "../subComponents/BigTitle";
 
 const Container = styled.div`
   width: 100vw;
@@ -101,6 +102,7 @@ const AboutPage = (props) => {
             swimming, and or cycling. I believe that a healthy body and mind are
             essential to achieving success in all areas of life.
           </Main>
+          <BigTitle text="ABOUT" top="10%" left="5%"/>
         </Box>
       </Container>
     </ThemeProvider>
