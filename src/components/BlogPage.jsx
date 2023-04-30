@@ -6,8 +6,7 @@ import Socials from "../subComponents/Socials";
 import { Blogs } from "../data/BlogData";
 import BlogSection from "./BlogSection";
 import Slider from "../subComponents/Slider";
-import SnowParticleComponent from "../subComponents/SnowParticleComponent";
-import RainParticleComponent from "../subComponents/RainParticleComponent";
+import SnowParticleComponent from "../subComponents/RainParticleComponent";
 import StarParticleComponent from "../subComponents/StarParticleComponent";
 import BigTitle from "../subComponents/BigTitle";
 import { motion } from "framer-motion";
@@ -67,7 +66,7 @@ const BlogPage = (props) => {
         <Logos />
         <PowerButton toggleTheme={props.toggleTheme} theme={props.theme} />
         {props.theme === "night" && <StarParticleComponent />}
-        {props.theme === "clouds" && <RainParticleComponent />}
+        {props.theme === "clouds" && <SnowParticleComponent />}
         <Socials />
         <Slider />
         <Center>

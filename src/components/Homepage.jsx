@@ -7,10 +7,8 @@ import { NavLink } from "react-router-dom";
 import { PersonPointingTop, WWW } from "../subComponents/AllSvgs";
 import Intro from "./Intro";
 import { motion } from "framer-motion";
-import TestParticles from "../subComponents/TestParticles";
-import SnowParticleComponent from "../subComponents/SnowParticleComponent";
+import SnowParticleComponent from "../subComponents/RainParticleComponent";
 import StarParticleComponent from "../subComponents/StarParticleComponent";
-import RainParticleComponent from "../subComponents/RainParticleComponent";
 
 const HomeContainer = styled(motion.div)`
   background: ${(props) => {
@@ -57,8 +55,7 @@ const BLOG = styled(NavLink)`
 
 const WORK = styled(NavLink)`
   color: ${(props) => {
-    console.log(props); // Log the props
-    return props.click ? props.theme.body : props.theme.text;
+    return props.click ? props.theme.extraText : props.theme.text;
   }};
   position: absolute;
   top: 50%;
@@ -80,7 +77,9 @@ const BOTTOMBAR = styled.div`
 `;
 
 const ABOUT = styled(NavLink)`
-  color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
+  color: ${(props) => {
+    return props.click ? props.theme.extraText : props.theme.text;
+  }};
   z-index: 1;
   text-decoration: none;
 `;
@@ -120,7 +119,7 @@ const Center = styled.button`
   transition: all 1s ease;
 
   & > :first-child {
-    animation: ${rotate} infinite 3s linear;
+    animation: ${rotate} 7s linear infinite;
   }
   & > :last-child {
     display: ${(props) => (props.click ? "none" : "inline-block")};
@@ -177,7 +176,7 @@ const Homepage = (props) => {
 
         <Center click={click} onClick={() => handleClick()}>
           <WWW width={click ? 50 : 180} height={200} fill="currentColor" />
-          <PersonPointingTop width={60} height={60}>
+          <PersonPointingTop width={30} height={30}>
             Click Me
           </PersonPointingTop>
         </Center>

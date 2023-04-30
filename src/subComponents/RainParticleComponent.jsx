@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import styled from "styled-components";
 import { loadFull } from "tsparticles";
-import { rainParticleConfig } from "../config/particlesConfig";
+import {rainParticleConfig } from "../config/particlesConfig";
 
 const Box = styled.div`
 position: absolute;
@@ -14,7 +14,7 @@ z-index: 0;
 
 `
 
-function RainParticleComponent() {
+function SnowParticleComponent() {
   const init = useCallback(async (engine) => {
     await loadFull(engine);
   });
@@ -29,4 +29,4 @@ function RainParticleComponent() {
   );
 }
 
-export default RainParticleComponent;
+export default SnowParticleComponent;

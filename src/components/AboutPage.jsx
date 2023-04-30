@@ -1,12 +1,10 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
-import { darkTheme, lightTheme, sunnyTheme } from "./Themes";
-import { Backend, Frontend, Tools } from "../subComponents/AllSvgs";
+import { sunnyTheme } from "./Themes";
 import Logos from "../subComponents/Logos";
 import Socials from "../subComponents/Socials";
 import PowerButton from "../subComponents/PowerButton";
-import SnowParticleComponent from "../subComponents/SnowParticleComponent";
-import RainParticleComponent from "../subComponents/RainParticleComponent";
+import SnowParticleComponent from "../subComponents/RainParticleComponent";
 import StarParticleComponent from "../subComponents/StarParticleComponent";
 import { motion } from "framer-motion";
 import astronaut from "../assets/images/astro3.png";
@@ -35,7 +33,7 @@ const Main = styled.div`
   color: ${(props) => props.theme.text};
   background: ${(props) => props.theme.body};
   padding: 2rem;
-  width: 50vw;
+  width: calc(40% + 10vw);
   height: 60vh;
   z-index: 3;
   line-height: 1.5;
@@ -51,18 +49,29 @@ const Main = styled.div`
   font-family: "Ubuntu Mono", monospace;
   font-style: italic;
   font-weight: 800;
+
+  @media (max-width: 767px) {
+    left: calc(3rem + 5vw);
+  }
 `;
 
 const Spaceman = styled.div`
   position: absolute;
-  top: 2%;
-  right: 9.5%;
+  top: calc(1% + 2vh);
+  right: calc(1% + 8.5vw);
   width: 30vw;
   opacity: 0.8;
   img {
-    width: 100%;
+    width: calc(70% + 10vw);
     height: auto;
   }
+  @media (max-width: 767px) {
+    z-index:10;
+    top: calc(5% + 5vh);
+    right: calc(1% + 1vw);
+  }
+
+
 `;
 
 const container = {

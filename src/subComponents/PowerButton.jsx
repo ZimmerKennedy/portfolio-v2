@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import { Cloud, Moon, Sun } from "./AllSvgs";
 import { NavLink } from "react-router-dom";
@@ -71,6 +71,10 @@ const PowerButton = ({toggleTheme, theme}) => {
     setPowerState(nextState);
     toggleTheme(nextState);
   };
+
+  useEffect(() => {
+    setPowerState(theme);
+  }, [theme]);
 
   return (
      <Power onClick={handlePowerStateChange}>

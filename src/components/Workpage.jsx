@@ -5,7 +5,7 @@ import { darkTheme, sunnyTheme } from "./Themes";
 import Logos from "../subComponents/Logos";
 import Socials from "../subComponents/Socials";
 import PowerButton from "../subComponents/PowerButton";
-import SnowParticleComponent from "../subComponents/SnowParticleComponent";
+import SnowParticleComponent from "../subComponents/RainParticleComponent";
 import StarParticleComponent from "../subComponents/StarParticleComponent";
 import { motion } from "framer-motion";
 

@@ -36,6 +36,10 @@ const Image = styled.div`
   ${Box}:hover & {
     border: 1px solid ${(props) => props.theme.body};
   }
+
+  @media (max-width: 767px) {
+    height: 50%;
+  }
 `;
 
 const Title = styled.div`
@@ -53,6 +57,9 @@ const Title = styled.div`
 
 const HashTags = styled.div`
   padding: 0.5rem 0;
+  whute-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 `;
 
 const Tag = styled.span`

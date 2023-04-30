@@ -6,6 +6,7 @@ import BlogPage from "./components/BlogPage";
 import Workpage from "./components/Workpage";
 import SkillsPage from "./components/SkillsPage";
 import { AnimatePresence } from "framer-motion";
+import TestComponent from "./subComponents/SkillsSection";
 
 
 const AppRoutes = (props) => {
@@ -21,6 +22,7 @@ const AppRoutes = (props) => {
         <Route path="/blog" element={<BlogPage toggleTheme={props.toggleTheme} theme={props.theme}/>} />
         <Route path="/work" element={<Workpage toggleTheme={props.toggleTheme} theme={props.theme}/>} />
         <Route path="/skills" element={<SkillsPage toggleTheme={props.toggleTheme} theme={props.theme}/>} />
+        <Route path="/test" element={<TestComponent toggleTheme={props.toggleTheme} theme={props.theme}/>} />
       </Routes>
   
     </AnimatePresence>

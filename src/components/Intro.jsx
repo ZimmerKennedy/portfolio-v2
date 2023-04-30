@@ -25,10 +25,8 @@ const Box = styled(motion.div)`
       top;
   background-repeat: no-repeat;
   background-size: 100% 2px;
-
   border-left: 2px solid ${(props) => props.theme.body};
   border-right: 2px solid ${(props) => props.theme.text};
-
   z-index: 1;
 `;
 
@@ -110,7 +108,6 @@ const Name = styled.h1`
 const StyledPersonThinking = styled(PersonThinking)`
   width: 300px;
   height: 300px;
-
   @media (max-width: 768px) {
     width: 220px;
     height: 220px;
