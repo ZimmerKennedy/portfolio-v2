@@ -63,11 +63,12 @@ const BlogPage = (props) => {
       }}
     >
       <Container>
-        <Logos />
+      <Logos theme={props.theme === "sunny" ? "light" : "dark"} />
+          <Socials theme={props.theme === "sunny" ? "light" : "dark"} />
         <PowerButton toggleTheme={props.toggleTheme} theme={props.theme} />
         {props.theme === "night" && <StarParticleComponent />}
         {props.theme === "clouds" && <SnowParticleComponent />}
-        <Socials />
+
         <Slider />
         <Center>
           <Grid>

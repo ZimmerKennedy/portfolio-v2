@@ -5,10 +5,11 @@ import Socials from "../subComponents/Socials";
 import { motion } from "framer-motion";
 import BigTitle from "../subComponents/BigTitle";
 import SkillsSection from "../subComponents/SkillsSection";
+import PowerButton from "../subComponents/PowerButton";
 
 const Container = styled(motion.div)`
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   background: ${(props) => props.theme.body};
 `;
 
@@ -23,7 +24,7 @@ const container = {
   },
 };
 
-const SkillsPage = () => {
+const SkillsPage = (props) => {
   return (
     <Container
       variants={container}
@@ -38,12 +39,13 @@ const SkillsPage = () => {
         },
       }}
     >
-      <>
-        <Logos theme="light" />
-        <Socials theme="light" />
+      
+      <Logos theme={props.theme === "sunny" ? "light" : "dark"} />
+          <Socials theme={props.theme === "sunny" ? "light" : "dark"} />
+        <PowerButton toggleTheme={props.toggleTheme} theme={props.theme} />
+      <SkillsSection theme={props.theme}/>
         <BigTitle text="SKILLS" top="80%" left="30%" />
-      </>
-      <SkillsSection />
+      
     </Container>
   );
 };
