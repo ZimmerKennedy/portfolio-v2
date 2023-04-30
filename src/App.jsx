@@ -8,7 +8,6 @@ import { useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 function App() {
   const [theme, setTheme] = useState("sunny");
-  const location = useLocation();
 
   const toggleTheme = (nextState) => {
     // setTheme((prevTheme) => (prevTheme === 'sunny' ? 'dark' : 'sunny'));
@@ -26,9 +25,7 @@ function App() {
             : rainTheme
         }
       >
-        <AnimatePresence mode='wait'>
-          <AppRoutes toggleTheme={toggleTheme} theme={theme} />
-        </AnimatePresence>
+        <AppRoutes toggleTheme={toggleTheme} theme={theme} />
       </ThemeProvider>
     </div>
   );

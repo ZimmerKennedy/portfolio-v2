@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 import astronaut from "../assets/images/astro3.png";
 import BigTitle from "../subComponents/BigTitle";
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   width: 100vw;
   height: 100%;
   background: ${(props) => props.theme.body};
@@ -65,21 +65,33 @@ const Spaceman = styled.div`
   }
 `;
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.5,
+      duration: 1,
+    },
+  },
+};
+
 const AboutPage = (props) => {
-  console.log(`i am about`, props);
-  const hoverAnimation = {
-    scale: 1.2,
-    transition: { duration: 0.3 },
-  };
-
-  const initialAnimation = {
-    scale: 1,
-    transition: { duration: 0.3 },
-  };
-
   return (
     <ThemeProvider theme={sunnyTheme}>
-      <Container>
+      <Container
+        variants={container}
+        initial="hidden"
+        animate="show"
+        exit={{
+          y: 5000,
+          opacity: 0.5,
+          transition: {
+            duration: 1,
+            ease: "easeInOut",
+          },
+        }}
+      >
         <Box>
           <Logos theme={props.theme === "sunny" ? "light" : "dark"} />
           <Socials theme={props.theme === "sunny" ? "light" : "dark"} />
@@ -93,16 +105,17 @@ const AboutPage = (props) => {
           </Spaceman>
           <Main>
             A Full Stack Software Developer who loves turning ideas into reality
-            through web development. 
+            through web development.
             <br /> <br />
-            I bring a disciplined and determined approach to my work. taking pride in writing clean, efficient code
-            and enjoy tackling complex challenges to find elegant solutions.
+            I bring a disciplined and determined approach to my work. taking
+            pride in writing clean, efficient code and enjoy tackling complex
+            challenges to find elegant solutions.
             <br /> <br />
             When I'm not coding, You can find me in the gym working out,
             swimming, and or cycling. I believe that a healthy body and mind are
             essential to achieving success in all areas of life.
           </Main>
-          <BigTitle text="ABOUT" top="10%" left="5%"/>
+          <BigTitle text="ABOUT" top="10%" left="5%" />
         </Box>
       </Container>
     </ThemeProvider>

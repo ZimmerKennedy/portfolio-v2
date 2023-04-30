@@ -12,7 +12,7 @@ import SnowParticleComponent from "../subComponents/SnowParticleComponent";
 import StarParticleComponent from "../subComponents/StarParticleComponent";
 import RainParticleComponent from "../subComponents/RainParticleComponent";
 
-const HomeContainer = styled.div`
+const HomeContainer = styled(motion.div)`
   background: ${(props) => {
     return props.theme.body;
   }};
@@ -146,7 +146,27 @@ const Homepage = (props) => {
   const handleClick = () => setClick(!click);
 
   return (
-    <HomeContainer>
+    <HomeContainer
+      initial={{
+        y: -2000,
+      }}
+      animate={{
+        y: 0,
+        opacity: 1,
+        transition: {
+          duration: 1,
+          ease: "easeInOut",
+        },
+      }}
+      exit={{
+        y: -5000,
+        opacity: 1,
+        transition: {
+          duration: 1,
+          ease: "easeInOut",
+        },
+      }}
+    >
       <DarkDiv click={click} />
       <Container>
         <PowerButton toggleTheme={props.toggleTheme} theme={props.theme} />
@@ -169,11 +189,11 @@ const Homepage = (props) => {
           <motion.h2
             initial={{
               y: -200,
-              transition: { type: "spring", duration: 1.5, delay: 0.7},
+              transition: { type: "spring", duration: 1.5, delay: 0.7 },
             }}
             animate={{
               y: 0,
-              transition: { type: "spring", duration: 1.5, delay: 0.7},
+              transition: { type: "spring", duration: 1.5, delay: 0.7 },
             }}
             whileHover={{ scale: 1.5 }}
             whileTap={{ scale: 2 }}
@@ -182,59 +202,67 @@ const Homepage = (props) => {
           </motion.h2>
         </Contact>
         <BLOG to="/blog">
-          <motion.h2 
-          initial={{
-            y: -200,
-            transition: { type: "spring", duration: 1.5, delay: 0.7},
-          }}
-          animate={{
-            y: 0,
-            transition: { type: "spring", duration: 1.5, delay: 0.7},
-          }}
-          whileHover={{ scale: 1.5 }} whileTap={{ scale: 2 }}>
+          <motion.h2
+            initial={{
+              y: -200,
+              transition: { type: "spring", duration: 1.5, delay: 0.7 },
+            }}
+            animate={{
+              y: 0,
+              transition: { type: "spring", duration: 1.5, delay: 0.7 },
+            }}
+            whileHover={{ scale: 1.5 }}
+            whileTap={{ scale: 2 }}
+          >
             Blog
           </motion.h2>
         </BLOG>
         <WORK to="/work" click={click}>
-          <motion.h2 
-          initial={{
-            y: -200,
-            transition: { type: "spring", duration: 1.5, delay: 0.7},
-          }}
-          animate={{
-            y: 0,
-            transition: { type: "spring", duration: 1.5, delay: 0.7},
-          }}
-          whileHover={{ scale: 1.5 }} whileTap={{ scale: 2 }}>
+          <motion.h2
+            initial={{
+              y: -200,
+              transition: { type: "spring", duration: 1.5, delay: 0.7 },
+            }}
+            animate={{
+              y: 0,
+              transition: { type: "spring", duration: 1.5, delay: 0.7 },
+            }}
+            whileHover={{ scale: 1.5 }}
+            whileTap={{ scale: 2 }}
+          >
             Work
           </motion.h2>
         </WORK>
         <BOTTOMBAR>
           <ABOUT to="/about" click={click}>
-            <motion.h2 
-            initial={{
-              y: 200,
-              transition: { type: "spring", duration: 1.5, delay: 0.7},
-            }}
-            animate={{
-              y: 0,
-              transition: { type: "spring", duration: 1.5, delay: 0.7},
-            }}
-            whileHover={{ scale: 1.5 }} whileTap={{ scale: 2 }}>
+            <motion.h2
+              initial={{
+                y: 200,
+                transition: { type: "spring", duration: 1.5, delay: 0.7 },
+              }}
+              animate={{
+                y: 0,
+                transition: { type: "spring", duration: 1.5, delay: 0.7 },
+              }}
+              whileHover={{ scale: 1.5 }}
+              whileTap={{ scale: 2 }}
+            >
               About
             </motion.h2>
           </ABOUT>
           <SKILLS to="/skills" click={click}>
-            <motion.h2 
-            initial={{
-              y: 200,
-              transition: { type: "spring", duration: 1.5, delay: 0.7},
-            }}
-            animate={{
-              y: 0,
-              transition: { type: "spring", duration: 1.5, delay: 0.7},
-            }}
-            whileHover={{ scale: 1.5 }} whileTap={{ scale: 2 }}>
+            <motion.h2
+              initial={{
+                y: 200,
+                transition: { type: "spring", duration: 1.5, delay: 0.7 },
+              }}
+              animate={{
+                y: 0,
+                transition: { type: "spring", duration: 1.5, delay: 0.7 },
+              }}
+              whileHover={{ scale: 1.5 }}
+              whileTap={{ scale: 2 }}
+            >
               Skills
             </motion.h2>
           </SKILLS>

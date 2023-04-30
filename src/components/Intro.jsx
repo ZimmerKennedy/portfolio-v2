@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import {motion} from 'framer-motion'
+import { motion } from "framer-motion";
 import { PersonThinking, TechStack } from "../subComponents/AllSvgs";
 
 const Box = styled(motion.div)`
@@ -89,9 +89,9 @@ const Center = styled(motion.div)`
       font-size: 0.8rem;
     }
     @media (min-width: 769px) and (max-width: 1024px) {
-        letter-spacing: 8px;
+      letter-spacing: 8px;
       font-size: 1.5rem;
-      }
+    }
   }
 `;
 
@@ -120,15 +120,14 @@ const StyledPersonThinking = styled(PersonThinking)`
 const Intro = () => {
   return (
     <Box
-    initial={{height:0}}
-    animate={{height: '70vh'}}
-    transition={{ type: 'spring', duration:1, delay:1}}
+      initial={{ height: 0 }}
+      animate={{ height: "70vh" }}
+      transition={{ type: "spring", duration: 1, delay: 1 }}
     >
       <Center
-      initial={{opacity:0}}
-      animate={{opacity:1}}
-      transition={{duration:2, delay:1}}
-      
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, delay: 1 }}
       >
         <TechStack width={200} height={200} fill="currentColor" />
         <StyledPersonThinking width={285} height={285} fill="currentColor" />

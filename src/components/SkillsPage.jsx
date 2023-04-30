@@ -11,7 +11,7 @@ import StarParticleComponent from "../subComponents/StarParticleComponent";
 import { motion } from 'framer-motion';
 import BigTitle from "../subComponents/BigTitle";
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   width: 100vw;
   height: 100%;
   background: ${(props) => props.theme.body};
@@ -76,6 +76,17 @@ font-size: calc(0.6em + 1vw);
 padding: 0.5rem;
 `
 
+const container = {
+  hidden: {opacity: 0},
+  show: {
+    opacity: 1,
+    transition:{
+      staggerChildren: 0.5,
+      duration: 0.5,
+    }
+  }
+}
+
 const SkillsPage = (props) => {
 
   const hoverAnimation = {
@@ -90,7 +101,19 @@ const SkillsPage = (props) => {
 
   return (
 
-    <Container>
+    <Container
+    variants={container}
+    initial='hidden'
+    animate='show'
+    exit={{
+      y: 5000,
+      opacity: 0.5,
+      transition: {
+        duration: 1, 
+        ease: 'easeInOut', 
+      },
+    }}
+    >
 
       <Box>
         <Logos theme='light'/>

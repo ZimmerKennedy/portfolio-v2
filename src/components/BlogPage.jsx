@@ -12,11 +12,6 @@ import StarParticleComponent from "../subComponents/StarParticleComponent";
 import BigTitle from "../subComponents/BigTitle";
 import { motion } from "framer-motion";
 
-
-
-
-
-
 const MainContainer = styled(motion.div)`
   width: 100vw;
 `;
@@ -43,32 +38,30 @@ const Grid = styled.div`
 `;
 
 const container = {
-  hidden: {opacity: 0},
+  hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition:{
+    transition: {
       staggerChildren: 0.5,
       duration: 0.5,
-    }
-  }
-}
-
-
-
-
+    },
+  },
+};
 
 const BlogPage = (props) => {
-
-  
-
   return (
     <MainContainer
-    variants={container}
-    initial='hidden'
-    animate='show'
-    exit={{
-      opacity:0, transition:{duration:0.5}
-    }}
+      variants={container}
+      initial="hidden"
+      animate="show"
+      exit={{
+        y: 5000,
+        opacity: 0.5,
+        transition: {
+          duration: 1,
+          ease: "easeInOut",
+        },
+      }}
     >
       <Container>
         <Logos />
@@ -80,11 +73,11 @@ const BlogPage = (props) => {
         <Center>
           <Grid>
             {Blogs.map((blog) => {
-            return  <BlogSection key={blog.id} blog={blog} />;
+              return <BlogSection key={blog.id} blog={blog} />;
             })}
           </Grid>
         </Center>
-        <BigTitle text="BLOG" top="5rem" left="5rem"/>
+        <BigTitle text="BLOG" top="5rem" left="5rem" />
       </Container>
     </MainContainer>
   );
