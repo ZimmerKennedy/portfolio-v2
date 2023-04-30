@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styled, { ThemeProvider } from "styled-components";
-import { darkTheme, sunnyTheme } from "./Themes";
+import {sunnyTheme } from "./Themes";
 
 import Logos from "../subComponents/Logos";
 import Socials from "../subComponents/Socials";
@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 
 import { Work } from "../data/WorkData";
 import Card from "../subComponents/Card";
-import { Github, WWW } from "../subComponents/AllSvgs";
+import { Rocket } from "../subComponents/AllSvgs";
 import BigTitle from "../subComponents/BigTitle";
 
 const Container = styled(motion.div)`
@@ -104,7 +104,7 @@ const WorkPage = (props) => {
             ))}
           </Main>
           <Circle ref={circle}>
-            <WWW width={80} height={80} />
+            <Rocket width={80} height={80} />
           </Circle>
           <BigTitle text="Works" top="10%" right="20%" />
         </Box>

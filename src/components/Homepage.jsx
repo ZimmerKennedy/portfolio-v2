@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import PowerButton from "../subComponents/PowerButton";
 import Logos from "../subComponents/Logos";
 import Socials from "../subComponents/Socials";
 import { NavLink } from "react-router-dom";
-import { PersonPointingTop, WWW } from "../subComponents/AllSvgs";
+import { PersonPointingTop, Rocket } from "../subComponents/AllSvgs";
 import Intro from "./Intro";
 import { motion } from "framer-motion";
 import SnowParticleComponent from "../subComponents/RainParticleComponent";
@@ -90,13 +90,18 @@ const SKILLS = styled(NavLink)`
   text-decoration: none;
 `;
 
-const rotate = keyframes`
-from {
-  transform: rotateY(0deg);
-}
-to {
-  transform: rotateY(360deg);
-}
+
+
+const rotateOnClick = keyframes`
+  0% {
+    transform: rotate(100deg);
+  }
+  50% {
+    transform: rotate(269deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
 `;
 
 const Center = styled.button`
@@ -104,7 +109,7 @@ const Center = styled.button`
   top: 50%;
   left: 50%;
   left: ${(props) => (props.click ? "90%" : "50%")};
-  top: ${(props) => (props.click ? "83%" : "50")};
+  top: ${(props) => (props.click ? "83%" : "50%")};
   transform: translate(-50%, -50%);
   border: none;
   outline: none;
@@ -116,10 +121,16 @@ const Center = styled.button`
   align-items: center;
   font-family: "Karla", sans-serif;
   font-weight: 800;
-  transition: all 1s ease;
+  transition: all 1.5s ease;
 
   & > :first-child {
-    animation: ${rotate} 7s linear infinite;
+    transform:rotate(-45deg);
+    animation: ${(props) =>
+      props.click
+        ? css`
+            ${rotateOnClick} 1s forwards
+          `
+        : 'none'};
   }
   & > :last-child {
     display: ${(props) => (props.click ? "none" : "inline-block")};
@@ -139,10 +150,15 @@ const DarkDiv = styled.div`
   transition: height 0.5s ease, width 1s ease 0.5s;
 `;
 
+
+
 const Homepage = (props) => {
   const [click, setClick] = useState(false);
-
+  
   const handleClick = () => setClick(!click);
+  function sendEmail() {
+    window.location.href = "mailto:kennedyzimmer00@gmail.com"
+  }
 
   return (
     <HomeContainer
@@ -175,15 +191,14 @@ const Homepage = (props) => {
         <Socials theme={props.theme === "sunny" && !click ? "light" : "dark"} />
 
         <Center click={click} onClick={() => handleClick()}>
-          <WWW width={click ? 50 : 180} height={200} fill="currentColor" />
-          <PersonPointingTop width={30} height={30}>
+          <Rocket width={click ? 50 : 120} height={120} fill="currentColor" />
+          <PersonPointingTop width={20} height={20}>
             Click Me
           </PersonPointingTop>
         </Center>
 
         <Contact
-          target="_blank"
-          to={{ pathname: "mailto:kennedyzimmer00@gmail.com" }}
+          onClick={sendEmail}
         >
           <motion.h2
             initial={{
