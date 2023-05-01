@@ -15,6 +15,9 @@ justify-content: center;
 align-items: center;
 flex-direction: column;
 transform: translateY(-100%);
+@media (max-width: 767px) {
+  right: 0rem;
+}
 `
 
 const PreDisplay = styled.div`
@@ -25,6 +28,9 @@ right: 2rem;
 top: 2rem;
 z-index:3;
 text-decoration: none;
+@media (max-width: 767px) {
+  right: 0rem;
+}
 `
 
 

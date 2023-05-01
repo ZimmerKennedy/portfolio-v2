@@ -73,7 +73,7 @@ const BOTTOMBAR = styled.div`
   display: flex;
   justify-content: space-evenly;
   @media (max-width: 767px) {
-    bottom: 7rem;
+    bottom: 7.5rem;
   }
 `;
 
