@@ -23,6 +23,11 @@ const Box = styled(motion(NavLink))`
     background-color: ${props => props.theme.text};
     color: ${props => props.theme.body};
 }
+
+@media (max-width: 767px) {
+  height: 50vh;
+  width: 55vw;
+}
 `;
 
 const Image = styled.div`
@@ -41,11 +46,13 @@ const Image = styled.div`
   }
 
   @media (max-width: 767px) {
-    height: 50%;
+    height: 40%;
+    background-size: cover;
   }
 `;
 
 const Title = styled.div`
+text-align: center;
   color: inherit;
   padding: 0.5rem 0;
   padding-top: 1rem;
@@ -56,23 +63,31 @@ const Title = styled.div`
   ${Box}:hover & {
     border-bottom: 1px solid ${(props) => props.theme.body};
   }
+
+  @media (max-width: 767px) {
+    font-size: 2rem;
+    text-align: center;
+  }
 `;
 
 const HashTags = styled.div`
   padding: 0.5rem 0;
-  whute-space: normal;
+  white-space: normal;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  text-align: center;
 `;
 
 const Tag = styled.span`
   padding-right: 0.5rem;
+  
 `;
 
 const Description = styled.h2`
 font-size: calc(0.8em + 0.3vw);
 font-family: 'Karla', sans-serif;
 font-weight: 500;
+text-align: center;
 `
 
 const Footer = styled.footer`
