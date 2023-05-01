@@ -5,8 +5,8 @@ import { Github } from './AllSvgs';
 import {motion} from 'framer-motion';
 
 const Box = styled(motion.li)`
-width: 20rem;
-height: 40vh;
+width: 60rem;
+height: 70vh;
 background-color: ${props => props.theme.body};
 color: ${props => props.theme.text};
 padding: 1rem 2rem;

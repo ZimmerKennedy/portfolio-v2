@@ -44,7 +44,7 @@ const SkillsPage = (props) => {
           <Socials theme={props.theme === "sunny" ? "light" : "dark"} />
         <PowerButton toggleTheme={props.toggleTheme} theme={props.theme} />
       <SkillsSection theme={props.theme}/>
-        <BigTitle text="SKILLS" top="80%" left="30%" />
+        <BigTitle text="SKILLS" top="60%" left="20%" />
       
     </Container>
   );

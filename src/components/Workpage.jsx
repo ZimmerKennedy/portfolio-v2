@@ -24,6 +24,7 @@ const Box = styled.div`
   color: ${(props) => props.theme.body};
   background: ${(props) => props.theme.body};
   height: 400vh;
+  
   position: relative;
   overflow: hidden;
 `;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled, { css, keyframes } from "styled-components";
+import styled, { css, keyframes, useTheme  } from "styled-components";
 import PowerButton from "../subComponents/PowerButton";
 import Logos from "../subComponents/Logos";
 import Socials from "../subComponents/Socials";
@@ -9,6 +9,7 @@ import Intro from "./Intro";
 import { motion } from "framer-motion";
 import SnowParticleComponent from "../subComponents/RainParticleComponent";
 import StarParticleComponent from "../subComponents/StarParticleComponent";
+import BigTitle from "../subComponents/BigTitle";
 
 const HomeContainer = styled(motion.div)`
   background: ${(props) => {
@@ -78,7 +79,9 @@ const BOTTOMBAR = styled.div`
 
 const ABOUT = styled(NavLink)`
   color: ${(props) => {
-    return props.click ? props.theme.extraText : props.theme.text;
+    const color = props.click ? props.theme.extraText : props.theme.text;
+    console.log("Selected color:", props);
+    return color;
   }};
   z-index: 1;
   text-decoration: none;
@@ -89,8 +92,6 @@ const SKILLS = styled(NavLink)`
   z-index: 1;
   text-decoration: none;
 `;
-
-
 
 const rotateOnClick = keyframes`
   0% {
@@ -122,15 +123,15 @@ const Center = styled.button`
   font-family: "Karla", sans-serif;
   font-weight: 800;
   transition: all 1.5s ease;
-
+  z-index: 10;
   & > :first-child {
-    transform:rotate(-45deg);
+    transform: rotate(-45deg);
     animation: ${(props) =>
       props.click
         ? css`
             ${rotateOnClick} 1s forwards
           `
-        : 'none'};
+        : "none"};
   }
   & > :last-child {
     display: ${(props) => (props.click ? "none" : "inline-block")};
@@ -150,14 +151,14 @@ const DarkDiv = styled.div`
   transition: height 0.5s ease, width 1s ease 0.5s;
 `;
 
-
-
 const Homepage = (props) => {
   const [click, setClick] = useState(false);
-  
+
+  const theme = useTheme();
+
   const handleClick = () => setClick(!click);
   function sendEmail() {
-    window.location.href = "mailto:kennedyzimmer00@gmail.com"
+    window.location.href = "mailto:kennedyzimmer00@gmail.com";
   }
 
   return (
@@ -191,15 +192,17 @@ const Homepage = (props) => {
         <Socials theme={props.theme === "sunny" && !click ? "light" : "dark"} />
 
         <Center click={click} onClick={() => handleClick()}>
-          <Rocket width={click ? 50 : 120} height={120} fill="currentColor" />
+          <Rocket
+            width={click ? 50 : 100}
+            height={100}
+             fill={theme.text}
+          />
           <PersonPointingTop width={20} height={20}>
             Click Me
           </PersonPointingTop>
         </Center>
 
-        <Contact
-          onClick={sendEmail}
-        >
+        <Contact onClick={sendEmail}>
           <motion.h2
             initial={{
               y: -200,
@@ -283,6 +286,9 @@ const Homepage = (props) => {
         </BOTTOMBAR>
       </Container>
       {click ? <Intro click={click} /> : null}
+      {/* <BigTitle text="DISCIPLINED" top="10rem" left="30rem" />
+      <BigTitle text="CREATIVE" top="20rem" left="30rem" />
+      <BigTitle text="DEVELOPER" top="30rem" left="30rem" /> */}
     </HomeContainer>
   );
 };

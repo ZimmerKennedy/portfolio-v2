@@ -130,6 +130,7 @@ const Intro = () => {
         <StyledPersonThinking width={285} height={285} fill="currentColor" />
         <Name>Zimmer Kennedy</Name>
         <h2>Full-Stack Web Developer</h2>
+  
       </Center>
     </Box>
   );

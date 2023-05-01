@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import styled from 'styled-components'
+import styled, {useTheme} from 'styled-components'
 import {CloseTag, PersonHardware } from './AllSvgs'
 
 const Container = styled.div`
@@ -29,10 +29,10 @@ text-decoration: none;
 
 
 const Slider = () => {
-
+  const theme = useTheme();
   const ref = useRef(null);
   const hiddenRef = useRef(null);
-
+  console.log(`theme`,theme)
   useEffect(() =>{
 
     const handleScroll = () =>{
@@ -64,7 +64,7 @@ const Slider = () => {
         <Links ref={ref}>
             {
               [...Array(25)].map((x, id) =>{
-                return <CloseTag key={id} width={30} height={30} className="chain"/>
+                return <CloseTag key={id} width={30} height={30} className="chain" fill={theme.text} blank={theme.body} />
               })
             }
             <PersonHardware width={90} height={90}/>

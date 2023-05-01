@@ -34,6 +34,7 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(1, minmax(calc(10rem + 15vw), 1fr));
   grid-gap: calc(1rem + 2vw);
+  z-index: 3;
 `;
 
 const container = {
@@ -77,7 +78,7 @@ const BlogPage = (props) => {
             })}
           </Grid>
         </Center>
-        <BigTitle text="BLOG" top="5rem" left="5rem" />
+        <BigTitle text="PROJECTS" top="5rem" left="5rem" />
       </Container>
     </MainContainer>
   );

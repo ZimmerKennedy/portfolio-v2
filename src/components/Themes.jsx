@@ -32,7 +32,7 @@ export const sunnyTheme = {
   text: "#000000",
   fontFamily: "'Source Sans Pro', sans-serif",
   bodyRgba: "252, 246, 244",
-  textRgba: "0,0,0",
+  textRgba: "106, 128, 144",
   hoverText: "#FCF6F4",
   extraText: "#FCF6F4"
 };

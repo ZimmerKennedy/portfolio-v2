@@ -28,7 +28,7 @@ const SkillContainer = styled(motion.div)`
   cursor: pointer;
   position: absolute;
   font-size: 1rem;
-
+    z-index: 3;
   @media (max-width: 768px) {
     font-size: 0.6rem;
     width: 0.1rem;
