@@ -32,7 +32,6 @@ const Slider = () => {
   const theme = useTheme();
   const ref = useRef(null);
   const hiddenRef = useRef(null);
-  console.log(`theme`,theme)
   useEffect(() =>{
 
     const handleScroll = () =>{

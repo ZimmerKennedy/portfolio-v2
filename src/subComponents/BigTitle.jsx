@@ -8,7 +8,6 @@ left: ${props => props.left};
 right: ${props => props.right};
 color: ${(props) => {
   const color = `rgba(${props.theme.textRgba}, 0.5)`;
-  console.log("Selected color:", props);
   return color;
 }};
 font-size: calc(5rem + 5vw);

@@ -14,9 +14,6 @@ const Container = styled(motion.div)`
   width: 100vw;
   height: 100%;
   background: ${(props) => props.theme.body};
-
-  /* Add a console.log statement here */
-  ${(props) => console.log(props)}
 `;
 const Box = styled.div`
   color: ${(props) => props.theme.body};
