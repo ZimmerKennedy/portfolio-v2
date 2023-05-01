@@ -129,7 +129,7 @@ const Intro = () => {
         <TechStack width={200} height={200} fill="currentColor" />
         <StyledPersonThinking width={285} height={285} fill="currentColor" />
         <Name>Zimmer Kennedy</Name>
-        <h2>Full-Stack Web Developer</h2>
+        <h2>Frontend Engineer</h2>
   
       </Center>
     </Box>

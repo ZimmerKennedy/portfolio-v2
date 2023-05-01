@@ -110,7 +110,7 @@ const AboutPage = (props) => {
             <img src={astronaut} alt="spaceman" />
           </Spaceman>
           <Main>
-            A Full Stack Software Developer who loves turning ideas into reality
+            Frontend Engineer who loves turning ideas into reality
             through web development.
             <br /> <br />
             I bring a disciplined and determined approach to my work. taking
