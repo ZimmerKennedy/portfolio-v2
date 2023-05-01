@@ -121,7 +121,7 @@ const AboutPage = (props) => {
             challenges to find elegant solutions.
             <br /> <br />
             When I'm not coding, You can find me in the gym working out,
-            swimming, and or cycling. I believe that a healthy body and mind are
+            swimming or cycling. I believe that a healthy body and mind are
             essential to achieving success in all areas of life.
           </Main>
           <BigTitle text="ABOUT" top="10%" left="5%" />

@@ -9,7 +9,7 @@ import Intro from "./Intro";
 import { motion } from "framer-motion";
 import SnowParticleComponent from "../subComponents/RainParticleComponent";
 import StarParticleComponent from "../subComponents/StarParticleComponent";
-import BigTitle from "../subComponents/BigTitle";
+
 
 const HomeContainer = styled(motion.div)`
   background: ${(props) => {
@@ -42,29 +42,26 @@ const Contact = styled(NavLink)`
   right: calc(1rem + 2vw);
   z-index: 1;
   text-decoration: none;
+  @media (max-width: 767px) {
+    top: 3rem;
+  }
 `;
 
-const BLOG = styled(NavLink)`
-  color: ${(props) => props.theme.text};
-  position: absolute;
-  top: 50%;
-  transform: rotate(90deg) translate(-50%, -50%);
-  right: calc(1rem + 2vw);
-  z-index: 1;
-  text-decoration: none;
+const PROJECTS = styled(NavLink)`
+color: ${(props) => {
+  const color = props.click ? props.theme.extraText : props.theme.text;
+  return color;
+}};
+z-index: 1;
+text-decoration: none;
 `;
 
-const WORK = styled(NavLink)`
-  color: ${(props) => {
-    return props.click ? props.theme.extraText : props.theme.text;
-  }};
-  position: absolute;
-  top: 50%;
-  left: calc(1rem + 2vw);
-  transform: translate(-50%, -50%) rotate(-90deg);
-  z-index: 1;
-  text-decoration: none;
-`;
+const SPAN = styled.span`
+color: ${(props) => {
+  const color = props.click ? props.theme.extraText : props.theme.text;
+  return color;
+}};
+`
 
 const BOTTOMBAR = styled.div`
   position: absolute;
@@ -80,11 +77,14 @@ const BOTTOMBAR = styled.div`
 const ABOUT = styled(NavLink)`
   color: ${(props) => {
     const color = props.click ? props.theme.extraText : props.theme.text;
-    console.log("Selected color:", props);
+
     return color;
   }};
   z-index: 1;
   text-decoration: none;
+  @media (max-width: 767px) {
+    padding-left: 0.5rem;
+  }
 `;
 
 const SKILLS = styled(NavLink)`
@@ -218,38 +218,6 @@ const Homepage = (props) => {
             Say Hi...
           </motion.h2>
         </Contact>
-        <BLOG to="/blog">
-          <motion.h2
-            initial={{
-              y: -200,
-              transition: { type: "spring", duration: 1.5, delay: 0.7 },
-            }}
-            animate={{
-              y: 0,
-              transition: { type: "spring", duration: 1.5, delay: 0.7 },
-            }}
-            whileHover={{ scale: 1.5 }}
-            whileTap={{ scale: 2 }}
-          >
-            Blog
-          </motion.h2>
-        </BLOG>
-        <WORK to="/work" click={click}>
-          <motion.h2
-            initial={{
-              y: -200,
-              transition: { type: "spring", duration: 1.5, delay: 0.7 },
-            }}
-            animate={{
-              y: 0,
-              transition: { type: "spring", duration: 1.5, delay: 0.7 },
-            }}
-            whileHover={{ scale: 1.5 }}
-            whileTap={{ scale: 2 }}
-          >
-            Work
-          </motion.h2>
-        </WORK>
         <BOTTOMBAR>
           <ABOUT to="/about" click={click}>
             <motion.h2
@@ -267,6 +235,24 @@ const Homepage = (props) => {
               About
             </motion.h2>
           </ABOUT>
+          <PROJECTS to="/projects">
+          <motion.h2
+            initial={{
+              y: -200,
+              transition: { type: "spring", duration: 1.5, delay: 0.7 },
+            }}
+            animate={{
+              y: 0,
+              transition: { type: "spring", duration: 1.5, delay: 0.7 },
+            }}
+            whileHover={{ scale: 1.5 }}
+            whileTap={{ scale: 2 }}
+          >
+           <SPAN click={click}>
+           Proj
+            </SPAN>ects
+          </motion.h2>
+        </PROJECTS>
           <SKILLS to="/skills" click={click}>
             <motion.h2
               initial={{
@@ -286,9 +272,6 @@ const Homepage = (props) => {
         </BOTTOMBAR>
       </Container>
       {click ? <Intro click={click} /> : null}
-      {/* <BigTitle text="DISCIPLINED" top="10rem" left="30rem" />
-      <BigTitle text="CREATIVE" top="20rem" left="30rem" />
-      <BigTitle text="DEVELOPER" top="30rem" left="30rem" /> */}
     </HomeContainer>
   );
 };

@@ -3,8 +3,8 @@ import styled from "styled-components";
 import Logos from "../subComponents/Logos";
 import PowerButton from "../subComponents/PowerButton";
 import Socials from "../subComponents/Socials";
-import { Blogs } from "../data/BlogData";
-import BlogSection from "./BlogSection";
+import { projects } from "../config/projectData";
+import BlogSection from "../subComponents/ProjectCard";
 import Slider from "../subComponents/Slider";
 import SnowParticleComponent from "../subComponents/RainParticleComponent";
 import StarParticleComponent from "../subComponents/StarParticleComponent";
@@ -73,8 +73,8 @@ const BlogPage = (props) => {
         <Slider />
         <Center>
           <Grid>
-            {Blogs.map((blog) => {
-              return <BlogSection key={blog.id} blog={blog} />;
+            {projects.map((project) => {
+              return <BlogSection key={project.id} project={project} />;
             })}
           </Grid>
         </Center>
