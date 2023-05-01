@@ -72,6 +72,9 @@ const BOTTOMBAR = styled.div`
 
   display: flex;
   justify-content: space-evenly;
+  @media (max-width: 767px) {
+    bottom: 4rem;
+  }
 `;
 
 const ABOUT = styled(NavLink)`
