@@ -69,11 +69,11 @@ const BOTTOMBAR = styled.div`
   left: 0;
   right: 0;
   width: 100%;
-
+  z-index: 10;
   display: flex;
   justify-content: space-evenly;
   @media (max-width: 767px) {
-    bottom: 7.5rem;
+    bottom: 3.5rem;
   }
 `;
 
@@ -112,8 +112,8 @@ const Center = styled.button`
   position: absolute;
   top: 50%;
   left: 50%;
-  left: ${(props) => (props.click ? "90%" : "50%")};
-  top: ${(props) => (props.click ? "83%" : "50%")};
+  left: ${(props) => (props.click ? "82%" : "50%")};
+  top: ${(props) => (props.click ? "85%" : "50%")};
   transform: translate(-50%, -50%);
   border: none;
   outline: none;
@@ -139,6 +139,10 @@ const Center = styled.button`
   & > :last-child {
     display: ${(props) => (props.click ? "none" : "inline-block")};
     padding-top: 1rem;
+  }
+  @media (max-width: 767px) {
+    left: ${(props) => (props.click ? "90%" : "50%")};
+    top: ${(props) => (props.click ? "83%" : "50%")};
   }
 `;
 
@@ -196,8 +200,8 @@ const Homepage = (props) => {
 
         <Center click={click} onClick={() => handleClick()}>
           <Rocket
-            width={click ? 50 : 100}
-            height={100}
+            width={click ? 40 : 100}
+            height={click ? 40 : 100}
              fill={theme.text}
           />
           <PersonPointingTop width={20} height={20}>
