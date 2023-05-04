@@ -1,7 +1,7 @@
 import notflix from "../assets/images/Notflix-Preview.png"
 import onTheGo from "../assets/images/onTheGo.png"
 import portfolioV1 from "../assets/images/portfolioV1.png"
-import pangea from "../assets/images/pangea.png"
+import rentility from "../assets/images/rentility.png"
 
 export const projects = [
     {
@@ -24,12 +24,12 @@ export const projects = [
     },
     {
         id:3,
-        name:"Pangea",
+        name:"Rentility",
         tags:["React","Redux","styled-components", "postgreSQL", "Node.JS", "Express.JS" ],
         description:"A powerful web application designed to connect tenants and landlords.",
-        imgSrc:pangea,
-        demo:"https://github.com/Pangea-Capstone-Project/Pangea/tree/78988c423e0c4b47bea67ae1179b0d9209f3ba96",
-        github:"https://github.com/Pangea-Capstone-Project/Pangea"
+        imgSrc:rentility,
+        demo:"https://rentility.vercel.app/",
+        github:"https://github.com/ZimmerKennedy/Rentility"
     },
     {
         id:4,
